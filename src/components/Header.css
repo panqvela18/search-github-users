@@ -1,0 +1,46 @@
+.header-logo {
+  width: 128px;
+  height: 39px;
+  margin-bottom: 35px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+#dark .header-logo,
+.sun {
+  filter: brightness(0) saturate(100%) invert(99%) sepia(100%) saturate(0%)
+    hue-rotate(45deg) brightness(102%) contrast(101%);
+}
+
+#dark .theme-text {
+  color: #ffffff;
+}
+
+#light .theme-text {
+  color: #90a4d4;
+}
+
+.theme-text {
+  font-size: 13px;
+  line-height: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: 7px;
+}
+
+.theme-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+  cursor: pointer;
+}
+
+#light .sun {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(20%) saturate(634%)
+    hue-rotate(186deg) brightness(89%) contrast(86%);
+}
