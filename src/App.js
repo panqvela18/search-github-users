@@ -6,9 +6,13 @@ import UserInfo from "./components/UserInfo";
 export const ThemeContext = createContext(null);
 
 function App() {
-  const [userData, setUserData] = useState(null);
-  const [userFound, setUserFound] = useState(false);
-  const [themes, setThemes] = useState("dark");
+  const [userData, setUserData] = useState();
+  const [userFound, setUserFound] = useState(true);
+  const [themes, setThemes] = useState(
+    localStorage.getItem("theme") == null
+      ? "light"
+      : localStorage.getItem("theme")
+  );
 
   const fetchUser = async (user) => {
     const response = await fetch(`https://api.github.com/users/${user}`);
@@ -23,7 +27,9 @@ function App() {
   };
 
   const toggleTheme = (curr) => {
-    setThemes((curr) => (curr === "light" ? "dark" : "light"));
+    const newTheme = curr === "light" ? "dark" : "light";
+    setThemes(newTheme);
+    localStorage.setItem("theme", newTheme);
   };
   return (
     <ThemeContext.Provider value={{ themes, toggleTheme }}>

@@ -5,10 +5,9 @@ import "./SearchBar.css";
 export default function SearchBar({ fetchUser, userFound }) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const searchUser = (event) => {
-    event.preventDefault();
+  const searchUser = (e) => {
+    e.preventDefault();
     fetchUser(searchTerm);
-    console.log("test");
   };
 
   return (
